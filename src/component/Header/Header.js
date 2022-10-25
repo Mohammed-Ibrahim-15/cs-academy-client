@@ -7,8 +7,9 @@ import { FaBookOpen } from "react-icons/fa";
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Header = () => {
-    const [theme, setTheme] = useState(false)
+    let theme = false;
     const { user } = useContext(AuthContext)
+
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container >
@@ -25,7 +26,11 @@ const Header = () => {
                     <Nav>
                         <Nav.Link > <Link style={{ textDecoration: 'none' }} className='text-light' to='/login'> <h6>Login</h6> </Link> </Nav.Link>
 
-                        <Nav.Link > <Link style={{ textDecoration: 'none' }} className='text-light'> <h6>Dank Memes</h6> </Link> </Nav.Link>
+                        <Nav.Link > <Link style={{ textDecoration: 'none' }} className='text-light'>
+                            <>
+                                <h5>Dark meme</h5>
+                            </>
+                        </Link> </Nav.Link>
 
 
 
