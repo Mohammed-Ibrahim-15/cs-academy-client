@@ -8,9 +8,9 @@ const Home = () => {
     const courses = useLoaderData()
     return (
         <div>
-            <h2>Welcome to Our Academy</h2>
+            <h2 className='text-center'>Welcome to Our Academy</h2>
             <Container>
-                <Row>
+                <Row className='d-flex flex-column-reverse flex-md-row'>
                     <Col lg='9'>
                         {
                             courses.map((course) => <Courses

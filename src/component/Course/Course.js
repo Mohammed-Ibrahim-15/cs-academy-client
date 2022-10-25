@@ -13,7 +13,7 @@ const Course = () => {
                     <Card.Img style={{ width: '300px', height: '300px' }} variant="top" src={course_photo} />
                     <div className='d-flex flex-column justify-content-center align-items-between me-4'>
                         <Card.Title> <h1>Course Name: {course_title}</h1> </Card.Title>
-                        <div className='d-flex justify-content-between align-items-center my-3'>
+                        <div className='d-md-flex  justify-content-between align-items-center my-3'>
                             <div>
                                 <Card.Title> <h4>Price: {course_price}$</h4> </Card.Title>
                                 <Card.Title> <h4>Videos: {total_video}</h4> </Card.Title>
@@ -28,7 +28,7 @@ const Course = () => {
                 </div>
                 <div>
                     <h6>Course Description: {course_details} </h6>
-                    <Button variant="primary">Buy Now</Button>
+                    <Button className='my-3' variant="primary">Buy Now</Button>
                 </div>
 
             </div>
