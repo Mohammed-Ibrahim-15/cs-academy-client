@@ -70,13 +70,14 @@ const Login = () => {
                 <Button variant="primary" type="submit">
                     Login
                 </Button>
+                <br />
                 <span className='ms-2'><small><Link to='/register'>Do not have account?</Link> </small></span>
                 <p>or</p>
-                <Button onClick={handleGoogle} className='w-25' variant="success" type="submit">
+                <Button onClick={handleGoogle} variant="success" type="submit">
                     <FaGoogle></FaGoogle> Google Login
                 </Button>
                 <br />
-                <Button onClick={handleGithub} className='mt-2 w-25' variant="dark" type="submit">
+                <Button onClick={handleGithub} className='mt-2' variant="dark" type="submit">
                     <FaGithub></FaGithub> Github Login
                 </Button>
             </Form>

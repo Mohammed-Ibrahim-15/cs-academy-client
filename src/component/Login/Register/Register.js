@@ -52,6 +52,7 @@ const Register = () => {
                 <Button variant="primary" type="submit">
                     Register
                 </Button>
+                <br />
                 <span className='ms-2'><small><Link to='/login'>Already have an account?</Link> </small></span>
             </Form>
         </div>

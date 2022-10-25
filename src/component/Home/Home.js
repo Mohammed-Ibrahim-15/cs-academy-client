@@ -8,7 +8,7 @@ const Home = () => {
     const courses = useLoaderData()
     return (
         <div>
-            <h2 className='text-center'>Welcome to Our Academy</h2>
+            <h1 className='text-center text-secondary my-3 fst-italic fs-1'>Welcome to Our Academy</h1>
             <Container>
                 <Row className='d-flex flex-column-reverse flex-md-row'>
                     <Col lg='9'>

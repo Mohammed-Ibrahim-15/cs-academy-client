@@ -20,7 +20,7 @@ const Course = () => {
                                 <Card.Title> <h4>Quiz: {total_quiz}</h4> </Card.Title>
                             </div>
                             <div>
-                                <Card.Title> <h4>Duration: {course_duration} <small>months</small> </h4> </Card.Title>
+                                <Card.Title> <h4>Duration: {course_duration} <small>Months</small> </h4> </Card.Title>
                                 <Card.Title> <h4>Instructor: {instructor_name}</h4> </Card.Title>
                             </div>
                         </div>
