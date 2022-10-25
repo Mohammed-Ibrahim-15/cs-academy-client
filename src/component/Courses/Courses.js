@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 <Button variant="primary">Go somewhere</Button>
 
 const Courses = ({ course }) => {
-    console.log(course)
+    // console.log(course)
     const { course_id, course_title, course_photo, course_duration, instructor_name } = course
 
     return (
