@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Pdf from "react-to-pdf";
 
 const Course = () => {
     const course = useLoaderData()
+    const ref = createRef()
     console.log(course)
     const { course_id, course_title, course_details, course_photo, course_duration, instructor_name, course_price, total_video, total_quiz } = course
     return (
         <div className='container App my-4'>
             <div>
-                <div className='d-flex flex-column align-items-center'>
+                <Pdf targetRef={ref} filename={`course_name_${course_title}`}>
+                    {({ toPdf }) => <button onClick={toPdf} className='btn btn-dark mb-3' >Course PDF</button>}
+                </Pdf>
+                <div ref={ref} className='d-flex flex-column align-items-center'>
                     <Card.Img style={{ width: '300px', height: '300px' }} variant="top" src={course_photo} />
                     <div className='d-flex flex-column justify-content-center align-items-between me-4'>
                         <Card.Title> <h1>Course Name: {course_title}</h1> </Card.Title>
