@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import { FaBookOpen, FaUser } from "react-icons/fa";
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
-import { Button, Image } from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
 
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
@@ -46,7 +46,7 @@ const Header = () => {
                                         placement={placement}
                                         overlay={
                                             <Tooltip id={`tooltip-${placement}`}>
-                                                {user?.displayName}.
+                                                {user?.displayName}
                                             </Tooltip>
                                         }>
                                         {

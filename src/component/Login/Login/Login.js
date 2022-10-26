@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -9,6 +9,7 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 
 const Login = () => {
+    const [error, setError] = useState('');
     const { loginUser, setLoading, googleSignIn, githubSignIn } = useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
@@ -27,11 +28,13 @@ const Login = () => {
             .then((result) => {
                 const user = result.user
                 form.reset()
+                setError('');
                 navigate(from, { replace: true });
                 console.log(user)
             })
             .catch((error) => {
                 console.error('Error: ', error)
+                setError(error.message);
             })
             .finally(() => {
                 setLoading(false)
@@ -43,11 +46,13 @@ const Login = () => {
         googleSignIn(googleProvider)
             .then((result) => {
                 const user = result.user;
+                setError('');
                 navigate(from, { replace: true });
                 console.log(user)
             })
             .catch((error) => {
                 console.error('Error: ', error)
+                setError(error.message);
             })
             .finally(() => {
                 setLoading(false)
@@ -58,11 +63,13 @@ const Login = () => {
         githubSignIn(githubProvider)
             .then((result) => {
                 const user = result.user
+                setError('');
                 navigate(from, { replace: true });
                 console.log(user)
             })
             .catch((error) => {
                 console.error('Error: ', error)
+                setError(error.message);
             })
             .finally(() => {
                 setLoading(false)
@@ -81,6 +88,10 @@ const Login = () => {
                     <Form.Label>Your Password</Form.Label>
                     <Form.Control name='password' type="password" placeholder="Enter Password" required />
                 </Form.Group>
+                <Form.Text className="text-danger">
+                    {error}
+                </Form.Text>
+                <br />
                 <Button variant="primary" type="submit">
                     Login
                 </Button>
