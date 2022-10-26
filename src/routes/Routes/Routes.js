@@ -7,6 +7,7 @@ import Login from "../../component/Login/Login/Login";
 import Register from "../../component/Login/Register/Register";
 import Main from "../../layout/Main/Main";
 import ErrorRoutes from "../ErrorRoutes/ErrorRoutes";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -43,7 +44,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses',
-                element: <AllCoursesDetails></AllCoursesDetails>,
+                element: <PrivateRoute><AllCoursesDetails></AllCoursesDetails></PrivateRoute>,
                 loader: () => {
                     return fetch('https://cs-academy-server.vercel.app/all-courses')
                 },
