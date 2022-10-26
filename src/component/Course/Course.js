@@ -15,9 +15,9 @@ const Course = () => {
                 <Pdf targetRef={ref} filename={`course_name_${course_title}`}>
                     {({ toPdf }) => <button onClick={toPdf} className='btn btn-dark mb-3' >Course PDF</button>}
                 </Pdf>
-                <div ref={ref} className='d-flex flex-column align-items-center'>
+                <div className='d-flex flex-column align-items-center'>
                     <Card.Img style={{ width: '300px', height: '300px' }} variant="top" src={course_photo} />
-                    <div className='d-flex flex-column justify-content-center align-items-between me-4'>
+                    <div ref={ref} className='d-flex flex-column justify-content-center align-items-between me-4'>
                         <Card.Title> <h1>Course Name: {course_title}</h1> </Card.Title>
                         <div className='d-md-flex  justify-content-between align-items-center my-3'>
                             <div>
@@ -32,7 +32,7 @@ const Course = () => {
                         </div>
                     </div>
                 </div>
-                <div>
+                <div >
                     <h6>Course Description: {course_details} </h6>
                     <Link to={`/checkout/${course_id}`}><Button variant="primary">Get Premium Access</Button></Link>
                 </div>
