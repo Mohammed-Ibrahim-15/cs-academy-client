@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
@@ -12,6 +12,10 @@ const Login = () => {
     const { loginUser, setLoading, googleSignIn, githubSignIn } = useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -22,8 +26,9 @@ const Login = () => {
         loginUser(email, password)
             .then((result) => {
                 const user = result.user
-                console.log(user)
                 form.reset()
+                navigate(from, { replace: true });
+                console.log(user)
             })
             .catch((error) => {
                 console.error('Error: ', error)
@@ -37,7 +42,8 @@ const Login = () => {
     const handleGoogle = () => {
         googleSignIn(googleProvider)
             .then((result) => {
-                const user = result.user
+                const user = result.user;
+                navigate(from, { replace: true });
                 console.log(user)
             })
             .catch((error) => {
@@ -52,6 +58,7 @@ const Login = () => {
         githubSignIn(githubProvider)
             .then((result) => {
                 const user = result.user
+                navigate(from, { replace: true });
                 console.log(user)
             })
             .catch((error) => {
