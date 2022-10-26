@@ -45,14 +45,14 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses',
-                element: <PrivateRoute><AllCoursesDetails></AllCoursesDetails></PrivateRoute>,
+                element: <AllCoursesDetails></AllCoursesDetails>,
                 loader: () => {
                     return fetch('https://cs-academy-server.vercel.app/all-courses')
                 },
             },
             {
                 path: '/checkout/:id',
-                element: <Checkout></Checkout>,
+                element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
                 loader: ({ params }) => {
                     return fetch(`https://cs-academy-server.vercel.app/course/${params.id}`)
                 }

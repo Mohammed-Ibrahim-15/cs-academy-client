@@ -3,8 +3,13 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
-import { FaBookOpen } from "react-icons/fa";
+import { FaBookOpen, FaUser } from "react-icons/fa";
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import { Button, Image } from 'react-bootstrap';
+
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
+
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
@@ -35,14 +40,35 @@ const Header = () => {
                     <Nav>
                         <Nav.Link > <Link style={{ textDecoration: 'none' }} className='text-light'>
                             <>
+                                {['bottom'].map((placement) => (
+                                    <OverlayTrigger
+                                        key={placement}
+                                        placement={placement}
+                                        overlay={
+                                            <Tooltip id={`tooltip-${placement}`}>
+                                                {user?.displayName}.
+                                            </Tooltip>
+                                        }>
+                                        {
+                                            user?.uid ?
+                                                <Image
+                                                    style={{ height: '30px' }}
+                                                    roundedCircle
+                                                    src={user?.photoURL}>
+                                                </Image>
+                                                :
+                                                <FaUser></FaUser>
+                                        }
+                                    </OverlayTrigger>
+                                ))}
+                            </>
+                            <>
                                 {
                                     user?.uid ?
-                                        <>
-                                            <span>{user?.displayName}</span>
-                                            <button onClick={handleSignOut} className='btn btn-light ms-2 rounded-3'>Logout</button>
-                                        </>
+                                        <button onClick={handleSignOut} className='btn btn-light ms-2 rounded-3'>Logout</button>
                                         :
-                                        <Nav.Link > <Link style={{ textDecoration: 'none' }} className='text-light' to='/login'> <h6>Login</h6> </Link> </Nav.Link>
+                                        <Link to='/login'><button className='btn btn-light ms-2 rounded-3'>Login</button> </Link>
+
 
                                 }
                             </>

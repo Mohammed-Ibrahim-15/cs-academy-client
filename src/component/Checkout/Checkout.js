@@ -7,7 +7,7 @@ const Checkout = () => {
 
     const { user } = useContext(AuthContext)
     const course = useLoaderData()
-    const { course_title, course_price, course_duration, total_video } = course
+    const { course_id, course_title, course_price, course_duration, total_video } = course
     return (
         < div >
             <Card className="text-center">
@@ -19,7 +19,8 @@ const Checkout = () => {
                     <br />
                     <Card.Text>
                         <h2 className='text-success'>Course You Want Premium Access</h2>
-                        <h4>Course Name: {course_title} </h4>
+                        <h4>Name: {course_title} </h4>
+                        <h6>Course ID: CS00{course_id}</h6>
                         <h6>Duration: {course_duration} Months </h6>
                         <h6>Video: {total_video} Videos </h6>
                         <h5 className='text-danger'>Price: {course_price}$ </h5>
