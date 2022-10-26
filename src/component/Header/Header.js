@@ -35,6 +35,10 @@ const Header = () => {
                         <Nav.Link> <Link style={{ textDecoration: 'none' }} className='text-light' to='/courses'><h6>Courses</h6></Link> </Nav.Link>
                         <Nav.Link > <Link style={{ textDecoration: 'none' }} className='text-light' to='/FAQ'><h6>FAQ</h6></Link> </Nav.Link>
                         <Nav.Link > <Link style={{ textDecoration: 'none' }} className='text-light' to='/blog'><h6>Blog</h6></Link> </Nav.Link>
+                        <div className="ms-1 mt-2 form-check form-switch">
+                            <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+                            <h6 className="form-check-label text-light" for="flexSwitchCheckDefault">Dark Mode</h6>
+                        </div>
 
                     </Nav>
                     <Nav>
@@ -72,6 +76,7 @@ const Header = () => {
 
                                 }
                             </>
+
                         </Link> </Nav.Link>
 
 
