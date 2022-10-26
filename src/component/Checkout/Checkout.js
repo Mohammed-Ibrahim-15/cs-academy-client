@@ -3,11 +3,16 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
+
 const Checkout = () => {
 
     const { user } = useContext(AuthContext)
     const course = useLoaderData()
     const { course_id, course_title, course_price, course_duration, total_video } = course
+
+    const notify = () => toast.success('Congratulations !! You can access this course');
+
     return (
         < div >
             <Card className="text-center">
@@ -25,7 +30,8 @@ const Checkout = () => {
                         <h6>Video: {total_video} Videos </h6>
                         <h5 className='text-danger'>Price: {course_price}$ </h5>
                     </Card.Text>
-                    <Button variant="primary">Buy Now</Button>
+                    <Button onClick={notify} variant="primary">Buy Now</Button>
+                    <Toaster />
                 </Card.Body>
             </Card>
         </div >
