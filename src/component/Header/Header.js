@@ -7,8 +7,17 @@ import { FaBookOpen } from "react-icons/fa";
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Header = () => {
-    let theme = false;
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleSignOut = () => {
+        logOut()
+            .then(() => {
+                // Sign Out
+            })
+            .catch((error) => {
+                console.error('Error: ', error)
+            })
+    }
 
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -24,11 +33,18 @@ const Header = () => {
                         <Nav.Link > <Link style={{ textDecoration: 'none' }} className='text-light' to='/blog'><h6>Blog</h6></Link> </Nav.Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link > <Link style={{ textDecoration: 'none' }} className='text-light' to='/login'> <h6>Login</h6> </Link> </Nav.Link>
-
                         <Nav.Link > <Link style={{ textDecoration: 'none' }} className='text-light'>
                             <>
-                                <h5>Dark meme</h5>
+                                {
+                                    user?.uid ?
+                                        <>
+                                            <span>{user?.displayName}</span>
+                                            <button onClick={handleSignOut} className='btn btn-light ms-2 rounded-3'>Logout</button>
+                                        </>
+                                        :
+                                        <Nav.Link > <Link style={{ textDecoration: 'none' }} className='text-light' to='/login'> <h6>Login</h6> </Link> </Nav.Link>
+
+                                }
                             </>
                         </Link> </Nav.Link>
 

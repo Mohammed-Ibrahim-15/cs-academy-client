@@ -22,14 +22,15 @@ const Login = () => {
         loginUser(email, password)
             .then((result) => {
                 const user = result.user
-                setLoading(true)
                 console.log(user)
+                form.reset()
             })
             .catch((error) => {
                 console.error('Error: ', error)
             })
-
-        form.reset()
+            .finally(() => {
+                setLoading(false)
+            })
 
     }
 
@@ -42,6 +43,9 @@ const Login = () => {
             .catch((error) => {
                 console.error('Error: ', error)
             })
+            .finally(() => {
+                setLoading(false)
+            })
     }
 
     const handleGithub = () => {
@@ -52,6 +56,9 @@ const Login = () => {
             })
             .catch((error) => {
                 console.error('Error: ', error)
+            })
+            .finally(() => {
+                setLoading(false)
             })
     }
 

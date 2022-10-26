@@ -18,14 +18,14 @@ export const routes = createBrowserRouter([
                 path: '/',
                 element: <Home></Home>,
                 loader: () => {
-                    return fetch('http://localhost:5000/all-courses')
+                    return fetch('https://cs-academy-server.vercel.app/all-courses')
                 },
             },
             {
                 path: '/course/:id',
                 element: <Course></Course>,
                 loader: ({ params }) => {
-                    return fetch(`http://localhost:5000/course/${params.id}`)
+                    return fetch(`https://cs-academy-server.vercel.app/course/${params.id}`)
                 }
 
             },
@@ -45,7 +45,7 @@ export const routes = createBrowserRouter([
                 path: '/courses',
                 element: <AllCoursesDetails></AllCoursesDetails>,
                 loader: () => {
-                    return fetch('http://localhost:5000/all-courses')
+                    return fetch('https://cs-academy-server.vercel.app/all-courses')
                 },
             }
         ]
