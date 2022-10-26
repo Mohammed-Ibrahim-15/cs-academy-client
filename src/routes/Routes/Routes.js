@@ -6,6 +6,7 @@ import Course from "../../component/Course/Course";
 import Home from "../../component/Home/Home";
 import Login from "../../component/Login/Login/Login";
 import Register from "../../component/Login/Register/Register";
+import FAQ from "../../FAQ/FAQ";
 import Main from "../../layout/Main/Main";
 import ErrorRoutes from "../ErrorRoutes/ErrorRoutes";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
@@ -42,6 +43,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/FAQ',
+                element: <FAQ></FAQ>
             },
             {
                 path: '/courses',

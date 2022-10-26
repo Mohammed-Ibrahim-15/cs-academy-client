@@ -6,7 +6,7 @@ const AllCoursesDetails = () => {
     const courses = useLoaderData()
     return (
         <div className='container App w-auto'>
-            <h2>All Courses</h2>
+            <h1 className='text-center text-secondary my-3 fst-italic fs-1'>All Courses</h1>
             {
                 courses.map((course) => <AllCourse
                     key={course.course_id}
