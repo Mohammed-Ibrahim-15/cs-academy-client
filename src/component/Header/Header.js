@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -12,6 +12,12 @@ import Tooltip from 'react-bootstrap/Tooltip';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
+
+    let [changeText, setChangeText] = useState(true);
+    const handleChange = () => {
+        setChangeText(!changeText);
+    };
+    console.log(changeText)
 
     const handleSignOut = () => {
         logOut()
@@ -36,8 +42,13 @@ const Header = () => {
                         <Nav.Link > <Link style={{ textDecoration: 'none' }} className='text-light' to='/FAQ'><h6>FAQ</h6></Link> </Nav.Link>
                         <Nav.Link > <Link style={{ textDecoration: 'none' }} className='text-light' to='/blog'><h6>Blog</h6></Link> </Nav.Link>
                         <div className="ms-1 mt-2 form-check form-switch">
-                            <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
-                            <h6 className="form-check-label text-light" for="flexSwitchCheckDefault">Dark Mode</h6>
+                            <input onClick={() => handleChange()} className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+                            {
+                                changeText ?
+                                    <h6 className="form-check-label text-light" for="flexSwitchCheckDefault">Light Mode</h6>
+                                    :
+                                    <h6 className="form-check-label text-light" for="flexSwitchCheckDefault">Dark Mode</h6>
+                            }
                         </div>
 
                     </Nav>
@@ -78,8 +89,6 @@ const Header = () => {
                             </>
 
                         </Link> </Nav.Link>
-
-
 
                     </Nav>
                 </Navbar.Collapse>
