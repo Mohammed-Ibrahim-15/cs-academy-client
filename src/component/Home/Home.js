@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import Courses from '../Courses/Courses';
 
 const Home = () => {
     const courses = useLoaderData()
+    const { user } = useContext(AuthContext)
+    console.log('From Home', user)
     return (
         <div>
             <h1 className='text-center text-secondary my-3 fst-italic fs-1'>Welcome to Our Academy</h1>
