@@ -15,7 +15,7 @@
 
 ## Features of our website:
 
-### <li>Our website is free for all. If you want to take premium access then you have pay the course fee.</li>
+### <li>Our website is free for all. If you want to take premium access then you have to pay the course fee.</li>
 ### <li>It is user friendly and easy to access.</li>
 ### <li>Our website is not so heavy. So it can't take long time to process.</li>
 ### <li>User can access from any devices. Very well responsive.</li>
@@ -27,4 +27,4 @@
 ### <li>We are using React Bootstrap front-end framework in our website</li>
 ### <li>We are using Firebase authentication for our website authentication</li>
 ### <li>Depending on criteria we used react-to-pdf, react-toast etc </li>
-### <li>In some private pages we are using private route for our customer privacy.</li>
+### <li>In some private pages we are using private route for our customer privacy</li>

@@ -98,14 +98,14 @@ const Login = () => {
                 <br />
                 <span className='ms-2'><small><Link to='/register'>Do not have account?</Link> </small></span>
                 <p>or</p>
-                <Button onClick={handleGoogle} variant="success" type="submit">
-                    <FaGoogle></FaGoogle> Google Login
-                </Button>
-                <br />
-                <Button onClick={handleGithub} className='mt-2' variant="dark" type="submit">
-                    <FaGithub></FaGithub> Github Login
-                </Button>
             </Form>
+            <Button onClick={handleGoogle} variant="success" type="submit">
+                <FaGoogle></FaGoogle> Google Login
+            </Button>
+            <br />
+            <Button onClick={handleGithub} className='mt-2' variant="dark" type="submit">
+                <FaGithub></FaGithub> Github Login
+            </Button>
         </div>
     );
 };
